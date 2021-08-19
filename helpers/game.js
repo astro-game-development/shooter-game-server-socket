@@ -20,7 +20,7 @@ let games = {};
 const CreateGame = () => {
   const room = randomString(5).toUpperCase();
   let targets = [];
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 5; i++) {
     targets.push(randomTarget());
   }
   games[room] = {
@@ -73,9 +73,7 @@ const Shooting = (name, room, _id) => {
     }
     games[room].targets.splice(i, 1);
   }
-  for (let x = 0; x < games[room].users.length; x++) {
-    games[room].targets.push(randomTarget());
-  }
+  games[room].targets.push(randomTarget());
   return games[room];
 };
 
